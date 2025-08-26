@@ -9,7 +9,7 @@ index 85cff63bd5..f5ff5db23c 100644
 +/**
 + * Calls av_jni_set_java_vm() with the given JavaVM*.
 + * https://github.com/FFmpeg/FFmpeg/blob/0ba719f726632d73592311615087a0d64aa2fb60/libavcodec/jni.h#L26-L36
-+ * 
++ *
 + * The av_jni_set_java_vm() symbol is not visible when statically linking with libavcodec.
 + * It is important to call this method so that libavcodec can access JNI environment & thus, mediacodec APIs.
 + */
@@ -38,6 +38,7 @@ index 96bf202e35..26baa9a169 100644
 +int mpv_lavc_set_java_vm(void *vm) {
 +    return av_jni_set_java_vm(vm, NULL);
 +}
++
 +
  // map client API types to internal types
  static const struct m_option type_conv[] = {
